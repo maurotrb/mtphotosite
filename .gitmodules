@@ -1,0 +1,3 @@
+[submodule "site-src/assets/foundation/bower-foundation"]
+	path = site-src/assets/foundation/bower-foundation
+	url = https://github.com/zurb/bower-foundation.git
