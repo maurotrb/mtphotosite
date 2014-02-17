@@ -2,4 +2,5 @@
 cabal.sandbox.config
 dist
 .hakyll-cache
+.sass-cache
 site-pub
