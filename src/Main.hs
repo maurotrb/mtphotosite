@@ -31,6 +31,13 @@ main = hakyllWith mtphotositeConfiguration $ do
   match "assets/foundation/bower-foundation/scss/normalize.scss" $ do
     route $ gsubRoute "foundation/bower-foundation/scss/" (const "css/") `composeRoutes` setExtension "css"
     compile sassCompiler
+  -- copy javascript
+  match ( "assets/foundation/bower-foundation/js/foundation.min.js"
+          .||. "assets/foundation/bower-foundation/js/vendor/modernizr.js"
+          .||. "assets/foundation/bower-foundation/js/vendor/jquery.js" ) $ do
+    route $ gsubRoute "foundation/bower-foundation/" (const "")
+    compile copyFileCompiler
+
 
 -- | Convert a @*.sass@ file into compressed CSS. Require ruby sass.
 sassCompiler :: Compiler (Item String)
@@ -42,4 +49,3 @@ sassCompiler = getResourceString
                                                    , "--load-path"
                                                    , "site-src/assets/foundation/"
                                                    ])
-
