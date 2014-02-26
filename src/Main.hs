@@ -31,7 +31,7 @@ main = hakyllWith mtphotositeConfiguration $ do
   match "assets/foundation/bower-foundation/scss/normalize.scss" $ do
     route $ gsubRoute "foundation/bower-foundation/scss/" (const "css/") `composeRoutes` setExtension "css"
     compile sassCompiler
-  -- copy javascript
+  -- copy javascript files
   match ( "assets/foundation/bower-foundation/js/foundation.min.js"
           .||. "assets/foundation/bower-foundation/js/vendor/modernizr.js"
           .||. "assets/foundation/bower-foundation/js/vendor/jquery.js" ) $ do
@@ -39,6 +39,10 @@ main = hakyllWith mtphotositeConfiguration $ do
     compile copyFileCompiler
   -- copy static text files
   match ( "robots.txt" .||. "humans.txt" ) $ do
+    route idRoute
+    compile copyFileCompiler
+  -- copy html files
+  match "index.html" $ do
     route idRoute
     compile copyFileCompiler
 
