@@ -1,0 +1,17 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Mauro Taraborelli -- @maurotrb
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    Normalize.css, jQuery, Modernizr
+    Foundation, Hakyll
+    Git, GitHub
+    Emacs
+
+
+                    

@@ -37,6 +37,10 @@ main = hakyllWith mtphotositeConfiguration $ do
           .||. "assets/foundation/bower-foundation/js/vendor/jquery.js" ) $ do
     route $ gsubRoute "foundation/bower-foundation/" (const "")
     compile copyFileCompiler
+  -- copy static text files
+  match ( "robots.txt" .||. "humans.txt" ) $ do
+    route idRoute
+    compile copyFileCompiler
 
 
 -- | Convert a @*.sass@ file into compressed CSS. Require ruby sass.
