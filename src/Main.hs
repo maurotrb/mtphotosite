@@ -45,8 +45,18 @@ main = hakyllWith mtphotositeConfiguration $ do
     route idRoute
     compile copyFileCompiler
 
+  -- copy jpg files
+  match ( "**.jpg" ) $ do
+    route idRoute
+    compile copyFileCompiler
+
+  -- copy fonts files
+  match ( "**.woff" ) $ do
+    route idRoute
+    compile copyFileCompiler
+
   -- copy html files
-  match "index.html" $ do
+  match ( "**index.html" ) $ do
     route idRoute
     compile $ do
       getResourceBody
